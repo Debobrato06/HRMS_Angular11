@@ -1,0 +1,120 @@
+
+
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="button" routerLink="/admin/admin"  class="nav-link" routerLinkActive="active">Admin</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="button" routerLink="/hr/employees"  class="nav-link" routerLinkActive="active">Employee</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="button" routerLink="/hr/deperments"  class="nav-link" routerLinkActive="active">Deperment</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="button" routerLink="/hr/designations"  class="nav-link" routerLinkActive="active">Designation</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="button" routerLink="/tnl/leaveType"  class="nav-link" routerLinkActive="active">Leave Type</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="button" routerLink="/tnl/leaveApp"  class="nav-link" routerLinkActive="active">Leave App</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="button" routerLink="/report/reports"  class="nav-link" routerLinkActive="active">Reports</a>
+    </li>
+
+  </ul>
+
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="button" routerLink="/login"  class="nav-link" routerLinkActive="active">Log out</a>
+    </li>
+<!--    <li class="nav-item">-->
+<!--      <a class="button" routerLink="/admin/registration"  class="nav-link" routerLinkActive="active">Registration</a>-->
+<!--&lt;!&ndash;    </li>&ndash;&gt;-->
+<!--    <li class="nav-item">-->
+<!--      <a class="button" routerLink="/login"  class="nav-link" routerLinkActive="active">Login</a>-->
+<!--    </li>-->
+  </ul>
+
+</nav>
+
+
+<!--Form-->
+<div class="div-section">
+
+  <h1>Reports Form</h1>
+  <form [formGroup]="reportForm" >
+<!--    formControlName="params"    formControlName="format"  formControlName="name"-->
+
+    <mat-form-field >
+      <mat-label>Name</mat-label>
+      <mat-select formControlName="format">
+        <mat-option>None</mat-option>
+        <mat-option  *ngFor="let report_format of reportFormat" [value]="report_format">{{report_format}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+<!--    <mat-form-field>-->
+<!--      <mat-label>Format</mat-label>-->
+<!--      <input formControlName="format" matInput >-->
+<!--    </mat-form-field>-->
+    &nbsp;
+<!--    <mat-form-field>-->
+<!--      <mat-label>Name</mat-label>-->
+<!--      <input  formControlName="name" matInput>-->
+<!--    </mat-form-field>-->
+
+    <mat-form-field >
+      <mat-label>Name</mat-label>
+      <mat-select formControlName="name" >
+        <mat-option>None</mat-option>
+        <mat-option  *ngFor="let report_name of reportName" [value]="report_name.value">{{report_name.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+      <mat-label>DEPT_ID</mat-label>
+      <input type="number" formControlName="department" matInput >
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+      <mat-label>DESG_ID</mat-label>
+      <input type="number" formControlName="designation"  matInput>
+    </mat-form-field>
+<!--    <mat-form-field>-->
+<!--      <mat-label>HR_DEPARTMENT</mat-label>-->
+<!--      <input type="number" formControlName="hr_department"  matInput>-->
+<!--    </mat-form-field>-->
+
+<!--    <mat-form-field>-->
+<!--      <mat-label>From Date</mat-label>-->
+<!--      <input type="date" formControlName="fromDate" matInput>-->
+<!--    </mat-form-field><br/>-->
+
+
+<!--    <mat-form-field>-->
+<!--      <mat-label>To Date</mat-label>-->
+<!--      <input type="date" formControlName="toDate" matInput>-->
+<!--    </mat-form-field><br/>-->
+
+    <button type="button" (click)="printReport()" mat-stroked-button color="accent">Report</button><br/>
+<!--    <button type="button" (click)="getReportDept()" mat-stroked-button color="accent">Report of employee list designation wise</button><br/>-->
+<!--    <button type="button" (click)="getReportDept()" mat-stroked-button color="accent">Report of employee list leave status </button><br/>-->
+<!--    <button type="button" (click)="getReportDept()" mat-stroked-button color="accent">Report of employee list leave status department wise</button><br/>-->
+
+ </form>
+
+</div>
+<!--<h1>Reports </h1>-->
+<!--<button type="button" (click)="getReportDept()" mat-stroked-button color="accent">Report of employee list department wise</button><br/>-->
+<!--<button type="button" (click)="getReportDesg()" mat-stroked-button color="accent">Report of employee list designation wise</button><br/>-->
+
